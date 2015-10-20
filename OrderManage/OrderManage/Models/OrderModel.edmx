@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Order.dbo.commission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="commission">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="gameid" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gameid" Type="bigint" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="type" Type="varchar" MaxLength="500" />
+          <Property Name="time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="facevalue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appid" Type="bigint" Nullable="false" />
+          <Property Name="gamename" Type="varchar" MaxLength="500" />
+          <Property Name="price" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="value" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Order.dbo.game' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="game">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gamename" Type="varchar" MaxLength="500" />
+          <Property Name="time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appid" Type="varchar" MaxLength="500" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="state" Type="varchar" MaxLength="500" />
+          <Property Name="time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="订单号" Type="varchar" MaxLength="500" />
+          <Property Name="订单详情" Type="ntext" />
+          <Property Name="状态" Type="varchar" MaxLength="50" />
+          <Property Name="提成" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="创建人" Type="bigint" Nullable="false" />
+          <Property Name="创建时间" Type="datetime" />
+          <Property Name="备注" Type="text" />
+        </EntityType>
+        <EntityType Name="platform">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="账号" Type="varchar" MaxLength="500" />
+          <Property Name="密码" Type="varchar" MaxLength="500" />
+          <Property Name="平台" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="processOrders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="bigint" />
+          <Property Name="orderid" Type="bigint" />
+          <Property Name="pdid" Type="bigint" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="note" Type="text" />
+          <Property Name="time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="500" />
+          <Property Name="uid" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="pwd" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="time" Type="datetime" />
+        </EntityType>
+        <Function Name="str_get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="src" Type="varchar" Mode="In" />
+          <Parameter Name="start" Type="varchar" Mode="In" />
+          <Parameter Name="end" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="str_getnum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char">
+          <Parameter Name="s" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="OrderModelStoreContainer">
+          <EntitySet Name="facevalue" EntityType="Self.facevalue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inventory" EntityType="Self.inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="platform" EntityType="Self.platform" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="processOrders" EntityType="Self.processOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="commission" EntityType="Self.commission" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [commission].[id] AS [id], 
+    [commission].[gameid] AS [gameid], 
+    [commission].[price] AS [price], 
+    [commission].[type] AS [type], 
+    [commission].[time] AS [time]
+    FROM [dbo].[commission] AS [commission]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="game" EntityType="Self.game" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [game].[id] AS [id], 
+    [game].[gamename] AS [gamename], 
+    [game].[time] AS [time]
+    FROM [dbo].[game] AS [game]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="facevalue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appid" Type="Int64" Nullable="false" />
+          <Property Name="gamename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appid" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="state" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="订单号" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="订单详情" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="状态" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="提成" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="创建人" Type="Int64" Nullable="false" />
+          <Property Name="创建时间" Type="DateTime" Precision="3" />
+          <Property Name="备注" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="platform">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="账号" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="密码" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="平台" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="processOrder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int64" />
+          <Property Name="orderid" Type="Int64" />
+          <Property Name="pdid" Type="Int64" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="uid" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pwd" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="commission">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="gameid" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gameid" Type="Int64" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="type" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="game">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gamename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="OrderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="facevalues" EntityType="Self.facevalue" />
+          <EntitySet Name="inventories" EntityType="Self.inventory" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="platforms" EntityType="Self.platform" />
+          <EntitySet Name="processOrders" EntityType="Self.processOrder" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="commissions" EntityType="Self.commission" />
+          <EntitySet Name="games" EntityType="Self.game" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrderModelStoreContainer" CdmEntityContainer="OrderEntities">
+          <EntitySetMapping Name="facevalues">
+            <EntityTypeMapping TypeName="OrderModel.facevalue">
+              <MappingFragment StoreEntitySet="facevalue">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="appid" ColumnName="appid" />
+                <ScalarProperty Name="gamename" ColumnName="gamename" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inventories">
+            <EntityTypeMapping TypeName="OrderModel.inventory">
+              <MappingFragment StoreEntitySet="inventory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="appid" ColumnName="appid" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="OrderModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="订单号" ColumnName="订单号" />
+                <ScalarProperty Name="订单详情" ColumnName="订单详情" />
+                <ScalarProperty Name="状态" ColumnName="状态" />
+                <ScalarProperty Name="提成" ColumnName="提成" />
+                <ScalarProperty Name="创建人" ColumnName="创建人" />
+                <ScalarProperty Name="创建时间" ColumnName="创建时间" />
+                <ScalarProperty Name="备注" ColumnName="备注" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="platforms">
+            <EntityTypeMapping TypeName="OrderModel.platform">
+              <MappingFragment StoreEntitySet="platform">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="账号" ColumnName="账号" />
+                <ScalarProperty Name="密码" ColumnName="密码" />
+                <ScalarProperty Name="平台" ColumnName="平台" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="processOrders">
+            <EntityTypeMapping TypeName="OrderModel.processOrder">
+              <MappingFragment StoreEntitySet="processOrders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="pdid" ColumnName="pdid" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="OrderModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commissions">
+            <EntityTypeMapping TypeName="OrderModel.commission">
+              <MappingFragment StoreEntitySet="commission">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gameid" ColumnName="gameid" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="games">
+            <EntityTypeMapping TypeName="OrderModel.game">
+              <MappingFragment StoreEntitySet="game">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gamename" ColumnName="gamename" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

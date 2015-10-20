@@ -1,0 +1,71 @@
+10/20/2015 9:34:34 PM	This log contains information about the import schema operation into project 'OrderData' on computer '5CG4342PR2' by user 'aniu'.
+10/20/2015 9:34:34 PM	Import of database schema has started.
+10/20/2015 9:34:40 PM	Gathering database options
+10/20/2015 9:34:40 PM	Gathering users
+10/20/2015 9:34:40 PM	Gathering roles
+10/20/2015 9:34:40 PM	Gathering application roles
+10/20/2015 9:34:40 PM	Gathering role memberships
+10/20/2015 9:34:40 PM	Gathering filegroups
+10/20/2015 9:34:40 PM	Gathering full-text catalogs
+10/20/2015 9:34:40 PM	Gathering assemblies
+10/20/2015 9:34:40 PM	Gathering certificates
+10/20/2015 9:34:40 PM	Gathering asymmetric keys
+10/20/2015 9:34:40 PM	Gathering symmetric keys
+10/20/2015 9:34:40 PM	Gathering encrypted symmetric keys
+10/20/2015 9:34:40 PM	Gathering schemas
+10/20/2015 9:34:40 PM	Gathering XML schema collections
+10/20/2015 9:34:40 PM	Gathering user-defined data types
+10/20/2015 9:34:40 PM	Gathering user-defined types
+10/20/2015 9:34:40 PM	Gathering table types
+10/20/2015 9:34:40 PM	Gathering unique keys for table types
+10/20/2015 9:34:40 PM	Gathering primary keys for table types
+10/20/2015 9:34:40 PM	Gathering check constraints for table types
+10/20/2015 9:34:40 PM	Gathering default constraints for table types
+10/20/2015 9:34:40 PM	Gathering partition functions
+10/20/2015 9:34:40 PM	Gathering partition schemes
+10/20/2015 9:34:40 PM	Gathering functions
+10/20/2015 9:34:40 PM	Gathering encrypted functions
+10/20/2015 9:34:40 PM	Gathering aggregates
+10/20/2015 9:34:40 PM	Gathering procedures
+10/20/2015 9:34:40 PM	Gathering encrypted procedures
+10/20/2015 9:34:40 PM	Gathering tables
+10/20/2015 9:34:40 PM	Gathering primary keys
+10/20/2015 9:34:40 PM	Gathering unique constraints
+10/20/2015 9:34:40 PM	Gathering foreign keys
+10/20/2015 9:34:40 PM	Gathering default constraints
+10/20/2015 9:34:40 PM	Gathering check constraints
+10/20/2015 9:34:40 PM	Gathering views
+10/20/2015 9:34:40 PM	Gathering encrypted views
+10/20/2015 9:34:40 PM	Gathering indexes
+10/20/2015 9:34:40 PM	Gathering statistics
+10/20/2015 9:34:40 PM	Gathering full-text index stoplists
+10/20/2015 9:34:40 PM	Gathering full-text indexes
+10/20/2015 9:34:40 PM	Gathering spatial indexes
+10/20/2015 9:34:40 PM	Gathering XML indexes
+10/20/2015 9:34:40 PM	Gathering encrypted triggers
+10/20/2015 9:34:40 PM	Gathering triggers
+10/20/2015 9:34:40 PM	Gathering encrypted and clr ddl triggers
+10/20/2015 9:34:40 PM	Gathering ddl triggers
+10/20/2015 9:34:40 PM	Gathering synonyms
+10/20/2015 9:34:40 PM	Gathering defaults
+10/20/2015 9:34:40 PM	Gathering data constraint uddt bindings
+10/20/2015 9:34:40 PM	Gathering rules
+10/20/2015 9:34:40 PM	Gathering data constraint uddt bindings
+10/20/2015 9:34:40 PM	Gathering message types
+10/20/2015 9:34:40 PM	Gathering queues
+10/20/2015 9:34:40 PM	Gathering contracts
+10/20/2015 9:34:40 PM	Gathering services
+10/20/2015 9:34:40 PM	Gathering event notifications
+10/20/2015 9:34:40 PM	Gathering remote service bindings
+10/20/2015 9:34:40 PM	Gathering broker priorities
+10/20/2015 9:34:40 PM	Gathering signatures
+10/20/2015 9:34:40 PM	Gathering data compression options
+10/20/2015 9:34:40 PM	Gathering extended properties
+10/20/2015 9:34:40 PM	Gathering credentials
+10/20/2015 9:34:40 PM	Gathering logins
+10/20/2015 9:34:40 PM	Gathering server audits
+10/20/2015 9:34:40 PM	Scanning project for duplicate elements
+10/20/2015 9:34:41 PM	Finished duplicate element processing
+10/20/2015 9:34:41 PM	Finished importing database.
+10/20/2015 9:34:41 PM	A summary of the import was saved to the following location: D:\Alan\workspace\BranchAlan\OrderManage\OrderData\Import Schema Logs\OrderData_20151020013434.log
+10/20/2015 9:34:41 PM	Click Finish to continue...
