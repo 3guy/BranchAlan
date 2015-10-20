@@ -15,12 +15,12 @@ namespace OrderManage.Models
     public partial class order
     {
         public long id { get; set; }
-        public string 订单号 { get; set; }
-        public string 订单详情 { get; set; }
-        public string 状态 { get; set; }
-        public Nullable<decimal> 提成 { get; set; }
-        public long 创建人 { get; set; }
-        public Nullable<System.DateTime> 创建时间 { get; set; }
-        public string 备注 { get; set; }
+        public string orderid { get; set; }
+        public string details { get; set; }
+        public string state { get; set; }
+        public Nullable<decimal> commissions { get; set; }
+        public long userid { get; set; }
+        public Nullable<System.DateTime> createtime { get; set; }
+        public string comments { get; set; }
     }
 }

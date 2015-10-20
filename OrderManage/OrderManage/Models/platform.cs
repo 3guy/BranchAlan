@@ -15,8 +15,8 @@ namespace OrderManage.Models
     public partial class platform
     {
         public long id { get; set; }
-        public string 账号 { get; set; }
-        public string 密码 { get; set; }
-        public string 平台 { get; set; }
+        public string user { get; set; }
+        public string password { get; set; }
+        public string platform1 { get; set; }
     }
 }
